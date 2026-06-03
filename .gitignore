@@ -2,8 +2,10 @@ dataset/
 __pycache__/
 *.pkl
 *.csv
+!requirements.txt
 catboost_info/
 output/
 *.log
 *.pid
 .DS_Store
+*.png
