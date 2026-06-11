@@ -31,6 +31,3 @@ python src/ts_forecaster.py
 3. **Optuna Bayesian Optimization**: Exhaustive 300+ trial hyperparameter searches across LightGBM, XGBoost, and CatBoost.
 4. **Stacked Ensembling**: Level-1 models generating Temporal-Rolling OOF predictions, weighted via Ridge Regression/Nelder-Mead optimization at Level-2.
 5. **Time-Series Extrapolation**: A completely orthogonal architecture mapping Day 48 curves as historical templates and utilizing Day 49 early quarters as real-time trend multipliers.
-
-## 🚨 The Target 100 Leakage Investigation
-A massive investigation was launched to reverse-engineer how 400+ teams achieved a perfect `100.0 R²` on the Hackathon leaderboard. Through deterministic lookup building (`src/build_lookup_model.py`), overlap auditing, and adversarial validation, we mathematically proved that the Test set (`Day 49, Time 2:15 - 23:45`) does **not** exist anywhere within the internal `train.csv` permutations. The perfect score is achieved solely through **External Data Leaks** (e.g. competitors sourcing the test labels directly from the internet), capping the theoretical pure-ML internal maximum at `~89 R²`.
